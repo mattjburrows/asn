@@ -1,0 +1,26 @@
+@import 'mixins/clearfix';
+@import 'mixins/hoverActiveFocus';
+@import 'variables';
+@import 'navigation';
+@import 'ribbon-navigation';
+
+html,
+body {
+  background-color: #252525;
+  font-family: Arial, Helvetica;
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+.main-content {
+  max-width: 976px;
+  margin: 0 auto;
+  padding: 16px 8px;
+  box-sizing: border-box;
+  color: #fff;
+
+  & > h1,
+  & > p {
+    padding-bottom: 16px;
+  }
+}

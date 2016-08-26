@@ -1,0 +1,12 @@
+{
+  "name": "tviplayer-navigation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass --include-path scss scss/default.scss css/default.css",
+    "test": "jasmine"
+  },
+  "author": "",
+  "license": "ISC"
+}

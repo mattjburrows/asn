@@ -1,0 +1,125 @@
+.main-nav {
+  position: relative;
+  text-align: right;
+  @include clearfix;
+
+  &__top {
+    max-width: 976px;
+    padding-left: 127px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    @include clearfix;
+
+    &__logo {
+      float: left;
+      margin-left: -127px;
+      padding: 12px 8px;
+    }
+  }
+
+  &__toggle {
+    margin: 0;
+    padding: 9px 8px 9px 18px;
+    background: none;
+    border: 0;
+    border-left: 1px solid #444;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  &__list {
+    max-width: 100%;
+    white-space: nowrap;
+
+    &__item,
+    &__toggle {
+      display: inline-block;
+      margin-left: -4px;
+    }
+
+    &__item {
+      padding: 19px 14px 18px;
+    }
+
+    &__toggle {
+      padding: 10px 14px 18px;
+
+      &.is-hidden {
+        display: none;
+      }
+    }
+
+    .main-nav__nested {
+      &.is-expanded {
+        position: absolute;
+        top: 63px;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  &__dropdown {
+    clear: both;
+    background-color: #1e1e1e;
+    text-align: left;
+
+    .js & {
+      display: none;
+    }
+
+    &__item {
+      border-bottom: 1px solid #333;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &.is-hidden {
+        display: none;
+      }
+    }
+
+    &.is-expanded {
+      display: block;
+    }
+  }
+
+  &__nested {
+    text-align: left;
+    overflow: hidden;
+
+    .js & {
+      display: none;
+    }
+
+    &.is-expanded {
+      display: block;
+      background-color: #1e1e1e;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    margin: 0;
+    padding: 4px 8px;
+    background: none;
+    border: 0;
+    color: $navigation-link-color;
+    font-size: 15px;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: $navigation-transition;
+
+    @include hoverActiveFocus() {
+      color: $navigation-link-hover-color;
+    }
+
+    &.is-selected {
+      color: $navigation-link-hover-color;
+    }
+  }
+}
