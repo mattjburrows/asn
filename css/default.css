@@ -21,7 +21,7 @@
     .main-nav__top__logo {
       float: left;
       margin-left: -127px;
-      padding: 12px 8px; }
+      padding: 16px 8px 12px; }
   .main-nav__toggle {
     margin: 0;
     padding: 9px 8px 9px 18px;
@@ -39,24 +39,27 @@
       display: inline-block;
       margin-left: -4px; }
     .main-nav__list__item {
-      padding: 19px 14px 18px; }
+      padding: 11px 14px 8px; }
     .main-nav__list__toggle {
       padding: 10px 14px 18px; }
       .main-nav__list__toggle.is-hidden {
         display: none; }
     .main-nav__list .main-nav__nested.is-expanded {
       position: absolute;
-      top: 63px;
+      top: 66px;
       left: 0;
       width: 100%; }
   .main-nav__dropdown {
     clear: both;
     background-color: #1e1e1e;
+    border-top: 1px solid #333;
     text-align: left; }
     .js .main-nav__dropdown {
       display: none; }
     .main-nav__dropdown__item {
-      border-bottom: 1px solid #333; }
+      max-width: 976px;
+      border-bottom: 1px solid #333;
+      margin: 0 auto; }
       .main-nav__dropdown__item:last-child {
         border-bottom: 0; }
       .main-nav__dropdown__item.is-hidden {
@@ -74,7 +77,7 @@
   .main-nav__link {
     display: inline-block;
     margin: 0;
-    padding: 4px 8px;
+    padding: 12px 8px;
     background: none;
     border: 0;
     color: #fff;
