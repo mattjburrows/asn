@@ -41,7 +41,7 @@
     margin: 0 8px;
     padding: 0 4px;
     color: $navigation-link-color;
-    transition: $navigation-transition;
+    // transition: $navigation-transition;
     text-decoration: none;
 
     @include hoverActiveFocus() {
