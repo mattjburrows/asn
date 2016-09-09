@@ -16,7 +16,8 @@ define([
       expanded: 'is-expanded',
       populated: 'is-populated',
       hidden: 'is-hidden',
-      clone: 'is-clone'
+      clone: 'is-clone',
+      active: 'is-active'
     };
     var listItemOptions = {
       'class': 'main-nav__list__item ' + states.clone
@@ -81,21 +82,42 @@ define([
       $dropdown.toggleClass(states.expanded);
     }
 
-    function toggleNestedDropdown() {
-      var $btn = $(this);
-      var $sibling = $btn.siblings('.main-nav__nested');
+    function setExpandedDropdownClass($dropdown){
       var $expandedNavigation = $('.main-nav__nested.' + states.expanded);
-      var isClone = $btn.parent().hasClass(states.clone);
 
-      if (!$sibling.is($expandedNavigation)) {
+      if (!$dropdown.is($expandedNavigation)) {
         $expandedNavigation.removeClass(states.expanded);
       }
-      $sibling.toggleClass(states.expanded);
+      $dropdown.toggleClass(states.expanded);
+    }
 
-      if (isClone) {
-        var paddingBottomValue = $sibling.hasClass(states.expanded) ? $sibling.height() : 0;
-        $list.css('padding-bottom', paddingBottomValue);
+    function setActiveButtonClass($btn) {
+      var $activeBtn = $('.main-nav__link.' + states.active);
+
+      if(!$btn.is($activeBtn)) {
+        $activeBtn.removeClass(states.active);
       }
+      $btn.toggleClass(states.active);
+    }
+
+    function positionNestedDropdown($btn, $dropdown, $list) {
+      var isClone = $btn.parent().hasClass(states.clone);
+
+      if (isClone && $dropdown.hasClass(states.expanded)) {
+        var paddingBottomValue = $dropdown.height();
+        $list.css('padding-bottom', paddingBottomValue);
+      } else {
+        $list.removeAttr('style');
+      }
+    }
+
+    function toggleNestedDropdown() {
+      var $btn = $(this);
+      var $dropdown = $btn.siblings('.main-nav__nested');
+
+      setExpandedDropdownClass($dropdown);
+      setActiveButtonClass($btn);
+      positionNestedDropdown($btn, $dropdown, $list);
     }
 
     $window

@@ -12,7 +12,6 @@
     top: 0;
     bottom: 0;
     width: 32px;
-    background-color: red;
     z-index: 1;
   }
 
@@ -28,7 +27,7 @@
 
   &__inner {
     margin-bottom: -24px;
-    padding: 8px 8px 32px 8px;
+    padding: 16px 8px 40px 8px;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;

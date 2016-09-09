@@ -24,3 +24,10 @@ body {
     padding-bottom: 16px;
   }
 }
+
+.tvip-hide {
+  position: absolute;
+  left: -100%;
+  width: 1px;
+  overflow: hidden;
+}

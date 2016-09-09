@@ -12,7 +12,10 @@ define(function () {
     </div>
     <ul class="main-nav__dropdown">
       <li class="main-nav__dropdown__item">
-        <button class="main-nav__link js-toggle-nested" data-id="1">Channels</button>
+        <button class="main-nav__link js-toggle-nested" data-id="1">
+          Channels
+          <span class="main-nav__link__arrow"></span>
+        </button>
         <div class="main-nav__nested">
           <div class="ribbon-navigation">
             <ul class="ribbon-navigation__inner">
@@ -32,7 +35,10 @@ define(function () {
         </div>
       </li>
       <li class="main-nav__dropdown__item">
-        <button href="#" class="main-nav__link js-toggle-nested">Categories</button>
+        <button href="#" class="main-nav__link js-toggle-nested">
+          Categories
+          <span class="main-nav__link__arrow"></span>
+        </button>
         <div class="main-nav__nested">
           <div class="ribbon-navigation">
             <ul class="ribbon-navigation__inner">
@@ -67,7 +73,10 @@ define(function () {
         <a href="#" class="main-nav__link">TV Guide</a>
       </li>
       <li class="main-nav__dropdown__item">
-        <a href="#" class="main-nav__link js-toggle-nested">My Programmes</a>
+        <a href="#" class="main-nav__link js-toggle-nested">
+          My Programmes
+          <span class="main-nav__link__arrow"></span>
+        </a>
         <div class="main-nav__nested">
           <div class="ribbon-navigation">
             <ul class="ribbon-navigation__inner">

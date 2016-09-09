@@ -64,7 +64,6 @@
   &__dropdown {
     clear: both;
     background-color: #1e1e1e;
-    border-top: 1px solid #333;
     text-align: left;
 
     .js & {
@@ -115,14 +114,31 @@
     text-decoration: none;
     vertical-align: middle;
     cursor: pointer;
-    transition: $navigation-transition;
 
     @include hoverActiveFocus() {
       color: $navigation-link-hover-color;
     }
 
+    &.is-active,
     &.is-selected {
       color: $navigation-link-hover-color;
+    }
+
+    &.is-active {
+      .main-nav__link__arrow {
+        border-top: 0;
+        border-bottom: 4px solid #fff;
+      }
+    }
+
+    &__arrow {
+      position: relative;
+      top: -2px;
+      display: inline-block;
+      margin-left: 4px;
+      border-top: 4px solid #fff;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
     }
   }
 }
