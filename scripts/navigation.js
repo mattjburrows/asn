@@ -3,28 +3,20 @@ define([
   'lodash'
 ], function ($, _) {
   function bind() {
-    var $window = $(window);
     var $document = $(document);
     var jsToggleDropdown = document.querySelectorAll('.js-toggle-dropdown')[0];
-    var $list = $('.main-nav__list');
     var list = document.querySelectorAll('.main-nav__list')[0];
-    var $dropdown = $('.main-nav__dropdown');
     var dropdown = document.querySelectorAll('.main-nav__dropdown')[0];
-    var $dropdownItems = $dropdown.find('.main-nav__dropdown__item');
     var dropdownItems = dropdown.querySelectorAll('.main-nav__dropdown__item');
     var linkCount = (dropdownItems.length - 1);
-    var $listToggleItem = $list.find('.main-nav__list__toggle');
     var listToggleItem = list.querySelectorAll('.main-nav__list__toggle')[0];
-    var listToggleItemWidth = $listToggleItem.outerWidth();
+    var listToggleItemWidth = outerWidth(listToggleItem);
     var states = {
       expanded: 'is-expanded',
       populated: 'is-populated',
       hidden: 'is-hidden',
       clone: 'is-clone',
       active: 'is-active'
-    };
-    var listItemOptions = {
-      'class': 'main-nav__list__item ' + states.clone
     };
     var windowResize = _.debounce(function () {
       removeLinks();
@@ -55,11 +47,10 @@ define([
     }
 
     function outerWidth(el) {
-      var width = el.offsetWidth;
-      var style = getComputedStyle(el);
+      var style = window.getComputedStyle(el, null);
+      var width = style.width;
 
-      width += parseInt(style.marginLeft) + parseInt(style.marginRight);
-      return width;
+      return width + parseInt(style.marginLeft) + parseInt(style.marginRight);
     }
 
     function buildNavigationItems() {
@@ -76,10 +67,9 @@ define([
         var itemInner = item.innerHTML;
         var listItem = document.createElement('li');
 
-        console.log(itemInner)
-
-        $(listItem).insertBefore($listToggleItem);
+        listToggleItem.parentNode.insertBefore(listItem, listToggleItem.parentNode.lastChild);
         listItem.innerHTML = itemInner;
+        listItem.classList.add('main-nav__list__item', states.clone);
 
         itemsWidth += outerWidth(listItem);
         listWidthExceeded = (itemsWidth + listToggleItemWidth) >= listWidth;
